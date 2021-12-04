@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  bot:
+    environment:
+      TOKEN: 5052503284:AAH2XJNuf4PDq5Vpew843p8yuSr2dnvq5s0
+      HOST: 65.21.242.2
+      PORT: 5050
+      USER: dima
+      PASSWORD: posheltinaxui
+      DB_NAME: danilin
+      SSL_MODE: disable
