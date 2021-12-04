@@ -1,0 +1,6 @@
+mutation IO {
+    create_users_item(
+        data: {
+        }
+    )
+}

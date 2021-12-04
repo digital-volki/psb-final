@@ -1,0 +1,83 @@
+.leftMenu{
+  width: 60%;
+}
+
+
+.form {
+  height: 25vh;
+}
+
+.auth_img{
+  background-image: url("../../public/authImg.png");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.auth_header{
+  margin-top: 6.1em;
+}
+.auth_card{
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  box-shadow: 0px 6px 12px -6px rgba(24, 39, 75, 0.12), 0px 8px 24px -4px rgba(24, 39, 75, 0.08);
+  border-radius: 12px;
+  max-height: 523px;
+  width: 100%;
+  max-width: 628px;
+
+}
+.auth_card_column{
+  height: 75%;
+}
+
+.qwe{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 145%;
+  color: #A2B5CD;
+}
+
+.qwe2{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 145%;
+  color: #30353B;
+}
+
+.qwe3{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 145%;
+  color: #808080;
+}
+.qwe4{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 135%;
+  color: #EA5616;
+  max-height: 85px;
+}
+.qwe5{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  color: #808080;
+}
+.qwe6{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  color: #FF4884;
+}

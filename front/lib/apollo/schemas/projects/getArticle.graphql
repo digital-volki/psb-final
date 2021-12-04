@@ -1,0 +1,29 @@
+query GET_ARTICLE (
+    $id: ID! = "ff093bf0-f114-4086-88e8-002241075291"
+){
+    project: projects_by_id(
+        id: $id
+    ) {
+        name
+        result
+        courses{
+            id
+        }
+        project_staff{
+            role{
+                name
+            }
+            user{
+                email
+                last_name
+                first_name
+            }
+        }
+        projects_meta{
+            id
+            purpose
+            events
+            planning
+        }
+    }
+}

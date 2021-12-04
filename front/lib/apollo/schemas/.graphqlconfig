@@ -1,0 +1,62 @@
+{
+  "projects": {
+    "default": {
+      "includes": [
+        "**",
+        "**/**"
+      ],
+      "excludes": [
+        "system/**",
+        "public/**"
+      ],
+      "schemaPath": "schema.gql",
+      "extensions": {
+        "endpoints": {
+          "default": {
+            "url": "https://psb-adm.volki.digital/graphql",
+            "headers": {
+              "Authorization": "Bearer psb_undef",
+              "user-agent": "JS GraphQL"
+            },
+            "introspect": true
+          }
+        }
+      }
+    },
+    "system": {
+      "includes": [
+        "system/**"
+      ],
+      "schemaPath": "system/schema.gql",
+      "extensions": {
+        "endpoints": {
+          "default": {
+            "url": "https://psb-adm.volki.digital/graphql/system",
+            "headers": {
+              "Authorization": "Bearer psb_token_undef",
+              "user-agent": "JS GraphQL"
+            },
+            "introspect": true
+          }
+        }
+      }
+    },
+    "public_sys": {
+      "includes": [
+        "public/**"
+      ],
+      "schemaPath": "public/schema.gql",
+      "extensions": {
+        "endpoints": {
+          "default": {
+            "url": "https://psb-adm.volki.digital/graphql/system",
+            "headers": {
+              "user-agent": "JS GraphQL"
+            },
+            "introspect": true
+          }
+        }
+      }
+    }
+  }
+}

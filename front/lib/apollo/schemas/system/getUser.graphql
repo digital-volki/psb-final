@@ -1,0 +1,11 @@
+query GET_USER{
+    users_me{
+        id
+        first_name
+        last_name
+        language
+        avatar {
+            id
+        }
+    }
+}

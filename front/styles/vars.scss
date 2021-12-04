@@ -1,0 +1,54 @@
+// theme vars
+
+$breadcrumb-divider: quote(">");
+$breadcrumb-active-color: red;
+$breadcrumb-divider-color: red;
+
+$spacer: 1rem;
+
+$custom-spacers: (
+        'sm': $spacer * 0.7,
+        'md': $spacer * 0.9,
+        'xl': $spacer * 4.8,
+        'xxl': $spacer * 5.2,
+);
+
+$custom-colors: (
+        'white': #ffffff,
+        'orng': #EA5616,
+        'gry': #808080,
+        'lght': #F5F6FA,
+        'blue2': #F0F4F9,
+        'blue4': #A2B5CD
+);
+
+
+
+$liner-gradient: (
+        active: linear-gradient(94.92deg, #571179 18.08%, #921CCB 84.24%)
+);
+
+// breakpoints
+
+// shadows
+
+$shadows: (
+  block: (
+    0px 24px 32px rgba(87, 17, 121, 0.1),
+    0px 16px 24px rgba(87, 17, 121, 0.06) 0px 4px 8px rgba(87, 17, 121, 0.08)
+      0px 0px 1px rgba(87, 17, 121, 0.09),
+  ),
+);
+
+@each $type, $value in $shadows {
+  .sh-#{$type} {
+    box-sizing: border-box;
+    box-shadow: $value;
+  }
+}
+
+@for $val from 1 through 4 {
+  .brdr-#{$val} {
+    border-radius: $val * 3px !important;
+  }
+}

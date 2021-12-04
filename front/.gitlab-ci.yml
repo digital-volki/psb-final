@@ -1,0 +1,46 @@
+stages:
+  - lint
+  - staging
+  - production
+
+
+## build stage
+lint:
+  stage: lint
+  script:
+    - docker-compose --env-file ./envs/.env.lint up --build
+
+
+## staging stage
+.staging-deploy: &staging-deploy
+  stage: staging
+  when: manual
+  only:
+    - dev
+    - merge_request
+  environment:
+    name: ${CI_BUILD_NAME}
+    url: https://ralepay.newwheel.org:11443/${CI_BUILD_NAME}
+  script:
+    - docker-compose --env-file ./envs/.env.$CI_BUILD_NAME up --build -d
+
+
+dev:
+  <<: *staging-deploy
+
+#staging:
+#  <<: *staging-deploy
+
+
+
+## production stage
+prod:
+  stage: production
+  when: manual
+  environment:
+    name: prod
+    url: https://valid.url
+  only:
+    - master
+  script:
+    - docker-compose --env-file ./envs/.env.prod up --build -d

@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import "vars";
+@import '../node_modules/antd/dist/antd.css';
+// Merge the maps
+@import "../node_modules/bootstrap/scss/functions"; // Required
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+$spacers: map-merge($spacers, $custom-spacers);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+$theme-colors: map-merge($theme-colors, $colors);
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+$utilities-colors: map-merge($utilities-colors, $theme-colors-rgb);
+$utilities-text-colors: map-loop($utilities-colors, rgba-css-var, "$key", "text");
+$utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
+
+
+// other imports below
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+
+
+@each $type, $value in $shadows {
+  .sh-#{$type} {
+    box-sizing: border-box;
+    box-shadow: $value;
+  }
+}
+
+
+@for $val from 1 through 4 {
+  .b-rounded-#{$val} {
+    border-radius: $val * 2px !important;
+  }
+}
+
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  @include transition(.2s ease)
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    color: inherit
+  }
+}
+
+body{
+  height: 100%;
+  background-color: #F5F6FA;
+}
+
+.fh1{
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 120%;
+}
+.fp3m_black{
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  color: #0C0C0C;
+}
+.fp3m_gray{
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  color: #808080;
+}
+
+.fp3sb_white{
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  color: #FFFFFF;
+}
+.fp3sb_orange{
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  color: #EA5616;
+}
+.fp2InputHeader{
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 120%;
+  color: #BCBCC2;
+}
+.fp2InputText{
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 120%;
+  color: #808080;
+
+}
+.fp1_black{
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 120%;
+  color: #0C0C0C;
+
+}
+
+.fsidebar{
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 120%;
+  color: #808080;
+}
+.fsidebar_active{
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 120%;
+  color: #EA5616;
+}
+
+.bg_active_sidebar{
+  background: rgba(234, 86, 22, 0.1);
+}
+
+.pointer{
+  cursor: pointer;
+}
+.mc{
+  padding-bottom: 100px;
+}
+
+.checkbox {
+  padding-left: 20px;
+}
+
+.checkbox label {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 5px;
+}
+
+.checkbox label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 0;
+  margin-left: -20px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  background-color: #fff;
+  -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.checkbox label::after {
+  display: inline-block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0;
+  top: 0;
+  margin-left: -20px;
+  padding-left: 3px;
+  padding-top: 1px;
+  font-size: 11px;
+  color: #555555;
+}
+
+.checkbox input[type="checkbox"] {
+  opacity: 0;
+  z-index: 1;
+}
+
+.checkbox input[type="checkbox"]:focus + label::before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.checkbox input[type="checkbox"]:checked + label::after {
+  font-family: 'FontAwesome';
+  content: "\f00c";
+}
+
+.checkbox input[type="checkbox"]:disabled + label {
+  opacity: 0.65;
+}
+
+.checkbox input[type="checkbox"]:disabled + label::before {
+  background-color: #eeeeee;
+  cursor: not-allowed;
+}
+
+.checkbox.checkbox-circle label::before {
+  border-radius: 50%;
+}
+
+.checkbox.checkbox-inline {
+  margin-top: 0;
+}
+
+.checkbox-warning input[type="checkbox"]:checked + label::before {
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+}
+
+.box {
+  background: #666666;
+  color: #ffffff;
+  width: 250px;
+  padding: 10px;
+  margin: 1em auto;
+}
+p {
+  margin: 1.5em 0;
+  padding: 0;
+}
+input[type="checkbox"] {
+  visibility: hidden;
+}
+label {
+  cursor: pointer;
+}
+input[type="checkbox"] + label:before {
+  border: 1px solid #B5C4D7;
+  content: "\00a0";
+  display: inline-block;
+  font: 16px/1em sans-serif;
+  height: 16px;
+  margin: 0 .25em 0 0;
+  padding: 0;
+  vertical-align: top;
+  width: 16px;
+  border-radius: 4px;
+}
+input[type="checkbox"]:checked + label:before {
+  background: #EA5616;
+  color: #FFFFFF;
+  content: "\2713";
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+input[type="checkbox"]:checked + label:after {
+  font-weight: bold;
+}
+
+input[type="checkbox"]:focus + label::before {
+  outline: rgb(59, 153, 252) auto 5px;
+}

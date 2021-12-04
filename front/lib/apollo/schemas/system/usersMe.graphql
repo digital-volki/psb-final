@@ -1,0 +1,19 @@
+query USERS_ME{
+    users_me{
+        first_name
+        email
+        last_name
+        avatar{
+            id
+        }
+        role{
+            admin_access
+            app_access
+            icon
+            id
+            name
+        }
+
+
+    }
+}

@@ -1,0 +1,14 @@
+mutation SEND_ANSWER(
+    $task: String = "4bb3385e-905f-4ff7-bcbe-c6b0ff9dfdc2"
+    $answer: JSON = "[]"
+) {
+    create_responses_item(
+        data: {
+            answer: $answer
+            task: $task
+        }
+    ) {
+        id
+        status
+    }
+}

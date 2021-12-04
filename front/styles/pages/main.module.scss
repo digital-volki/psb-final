@@ -1,0 +1,34 @@
+.leftMenu{
+  width: 60%;
+}
+
+
+.form {
+  height: 25vh;
+}
+
+.auth_img{
+  background-image: url("../../public/authImg.png");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.auth_header{
+  margin-top: 6.1em;
+}
+.auth_card{
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  box-shadow: 0px 6px 12px -6px rgba(24, 39, 75, 0.12), 0px 8px 24px -4px rgba(24, 39, 75, 0.08);
+  border-radius: 12px;
+  max-height: 523px;
+  width: 100%;
+  max-width: 628px;
+
+}
+.auth_card_column{
+  height: 75%;
+}
+

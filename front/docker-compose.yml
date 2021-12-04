@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  app:
+    restart: ${RESTARTER:-always}
+    image: digital-volki.registry.jetbrains.space/p/hack/images/psb-front:latest
+#    build:
+#      context: .
+#      args:
+#        CONFIG: ${CI_BUILD_NAME:-lint}
+#      dockerfile: Dockerfile${BUILDER_POSTFIX:-}
+    networks:
+      - meow
+#    volumes:
+#      - ./envs/.env.${CI_BUILD_NAME:-prod}:/app/.env
+    ports:
+      - '${EXPOSE_PORT:-3000}:3000'
+
+networks:
+  meow:
+    external: false
+    name: meow

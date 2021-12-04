@@ -1,0 +1,44 @@
+.card{
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 20px;
+}
+
+.card_desc{
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 140%;
+  color: #808080;
+}
+
+.card_title{
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 25px;
+  color: #0C0C0C;
+}
+
+.card_button{
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 140%;
+  color: #EA5616;
+}
+
+.card_stats{
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 25px;
+  color: #808080;
+}

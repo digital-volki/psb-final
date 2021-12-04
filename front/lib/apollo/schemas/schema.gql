@@ -1,0 +1,684 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+union courses_elements_item_union = articles | partition | tasks
+
+union partition_elements_item_union = articles | tasks
+
+type Mutation {
+    create_responses_item(data: create_responses_input!): responses
+    create_responses_items(data: [create_responses_input!], filter: responses_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [responses]
+    update_projects_item(data: update_projects_input!, id: ID!): projects
+    update_projects_items(data: update_projects_input!, filter: projects_filter, ids: [ID]!, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [projects]
+    update_responses_item(data: update_responses_input!, id: ID!): responses
+    update_responses_items(data: update_responses_input!, filter: responses_filter, ids: [ID]!, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [responses]
+}
+
+type Query {
+    articles(filter: articles_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [articles]
+    articles_by_id(id: ID!): articles
+    courses(filter: courses_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [courses]
+    courses_by_id(id: ID!): courses
+    courses_elements(filter: courses_elements_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [courses_elements]
+    courses_elements_aggregated(filter: courses_elements_filter, groupBy: [String], search: String, sort: [String]): [courses_elements_aggregated]
+    courses_elements_by_id(id: ID!): courses_elements
+    game_company(filter: game_company_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [game_company]
+    game_company_aggregated(filter: game_company_filter, groupBy: [String], search: String, sort: [String]): [game_company_aggregated]
+    game_company_by_id(id: ID!): game_company
+    game_tasks(filter: game_tasks_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [game_tasks]
+    game_tasks_by_id(id: ID!): game_tasks
+    partition(filter: partition_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [partition]
+    partition_by_id(id: ID!): partition
+    partition_elements(filter: partition_elements_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [partition_elements]
+    partition_elements_aggregated(filter: partition_elements_filter, groupBy: [String], search: String, sort: [String]): [partition_elements_aggregated]
+    partition_elements_by_id(id: ID!): partition_elements
+    project_staff(filter: project_staff_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [project_staff]
+    project_staff_by_id(id: ID!): project_staff
+    projects(filter: projects_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [projects]
+    projects_by_id(id: ID!): projects
+    projects_courses(filter: projects_courses_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [projects_courses]
+    projects_courses_aggregated(filter: projects_courses_filter, groupBy: [String], search: String, sort: [String]): [projects_courses_aggregated]
+    projects_courses_by_id(id: ID!): projects_courses
+    projects_meta(filter: projects_meta_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [projects_meta]
+    projects_meta_by_id(id: ID!): projects_meta
+    responses(filter: responses_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [responses]
+    responses_by_id(id: ID!): responses
+    tasks(filter: tasks_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [tasks]
+    tasks_by_id(id: ID!): tasks
+}
+
+type articles {
+    content: String
+    date_created: Date
+    date_created_func: datetime_functions
+    date_updated: Date
+    date_updated_func: datetime_functions
+    description: String
+    id: ID
+    name: String
+    status: String!
+    thumbnail(filter: directus_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_files
+    user_created(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+    user_updated(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+}
+
+type courses {
+    date_created: Date
+    date_created_func: datetime_functions
+    date_updated: Date
+    date_updated_func: datetime_functions
+    description: String
+    elements(filter: courses_elements_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [courses_elements]
+    id: ID
+    name: String
+    status: String!
+    thumbnail(filter: directus_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_files
+    user_created(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+    user_updated(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+}
+
+type courses_elements {
+    collection: String
+    courses_id(filter: courses_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): courses
+    id: ID
+    item: courses_elements_item_union
+    order: Int
+}
+
+type courses_elements_aggregated {
+    avg: courses_elements_aggregated_fields
+    avgDistinct: courses_elements_aggregated_fields
+    count: courses_elements_aggregated_fields
+    countDistinct: courses_elements_aggregated_fields
+    group: JSON
+    max: courses_elements_aggregated_fields
+    min: courses_elements_aggregated_fields
+    sum: courses_elements_aggregated_fields
+    sumDistinct: courses_elements_aggregated_fields
+}
+
+type courses_elements_aggregated_fields {
+    id: Float
+    order: Float
+}
+
+type datetime_functions {
+    day: Int
+    hour: Int
+    minute: Int
+    month: Int
+    second: Int
+    week: Int
+    weekday: Int
+    year: Int
+}
+
+type directus_files {
+    charset: String
+    description: String
+    duration: Int
+    embed: String
+    filename_disk: String
+    filename_download: String!
+    filesize: Int
+    folder(filter: directus_folders_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_folders
+    height: Int
+    id: ID
+    location: String
+    metadata: JSON
+    modified_by(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+    modified_on: Date!
+    modified_on_func: datetime_functions
+    storage: String!
+    tags: JSON
+    title: String
+    type: String
+    uploaded_by(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+    uploaded_on: Date!
+    uploaded_on_func: datetime_functions
+    width: Int
+}
+
+type directus_folders {
+    id: ID
+    name: String!
+    parent(filter: directus_folders_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_folders
+}
+
+type directus_roles {
+    admin_access: Boolean!
+    app_access: Boolean!
+    description: String
+    enforce_tfa: Boolean!
+    icon: String!
+    id: ID
+    ip_access: [String]
+    name: String!
+    users(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_users]
+}
+
+type directus_users {
+    avatar(filter: directus_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_files
+    description: String
+    email: String
+    first_name: String
+    id: ID
+    language: String
+    last_name: String
+    last_page: String
+    location: String
+    password: String
+    role(filter: directus_roles_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_roles
+    status: String!
+    tags: JSON
+    tfa_secret: String
+    theme: String
+    title: String
+}
+
+type game_company {
+    bill: Int
+    icon(filter: directus_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_files
+    id: ID
+    name: String
+    staff: JSON
+    type: String
+}
+
+type game_company_aggregated {
+    avg: game_company_aggregated_fields
+    avgDistinct: game_company_aggregated_fields
+    count: game_company_aggregated_fields
+    countDistinct: game_company_aggregated_fields
+    group: JSON
+    max: game_company_aggregated_fields
+    min: game_company_aggregated_fields
+    sum: game_company_aggregated_fields
+    sumDistinct: game_company_aggregated_fields
+}
+
+type game_company_aggregated_fields {
+    bill: Float
+}
+
+type game_tasks {
+    answer: Boolean
+    description: String
+    icon(filter: directus_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_files
+    id: ID
+    title: String
+}
+
+type partition {
+    elements(filter: partition_elements_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [partition_elements]
+    id: ID
+    name: String
+}
+
+type partition_elements {
+    collection: String
+    id: ID
+    item: partition_elements_item_union
+    partition_id(filter: partition_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): partition
+}
+
+type partition_elements_aggregated {
+    avg: partition_elements_aggregated_fields
+    avgDistinct: partition_elements_aggregated_fields
+    count: partition_elements_aggregated_fields
+    countDistinct: partition_elements_aggregated_fields
+    group: JSON
+    max: partition_elements_aggregated_fields
+    min: partition_elements_aggregated_fields
+    sum: partition_elements_aggregated_fields
+    sumDistinct: partition_elements_aggregated_fields
+}
+
+type partition_elements_aggregated_fields {
+    id: Float
+}
+
+type project_staff {
+    id: ID
+    project(filter: projects_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): projects
+    role(filter: directus_roles_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_roles
+    user(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+}
+
+type projects {
+    courses(filter: projects_courses_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [projects_courses]
+    date_created: Date
+    date_created_func: datetime_functions
+    id: ID
+    name: String
+    project_staff(filter: project_staff_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [project_staff]
+    projects_meta(filter: projects_meta_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [projects_meta]
+    result: String
+    user_created(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+}
+
+type projects_courses {
+    courses_id(filter: courses_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): courses
+    id: ID
+    projects_id(filter: projects_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): projects
+}
+
+type projects_courses_aggregated {
+    avg: projects_courses_aggregated_fields
+    avgDistinct: projects_courses_aggregated_fields
+    count: projects_courses_aggregated_fields
+    countDistinct: projects_courses_aggregated_fields
+    group: JSON
+    max: projects_courses_aggregated_fields
+    min: projects_courses_aggregated_fields
+    sum: projects_courses_aggregated_fields
+    sumDistinct: projects_courses_aggregated_fields
+}
+
+type projects_courses_aggregated_fields {
+    id: Float
+}
+
+type projects_meta {
+    date_created: Date
+    date_created_func: datetime_functions
+    events: JSON
+    id: ID
+    planning: JSON
+    project(filter: projects_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): projects
+    purpose: String
+    user_created(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+}
+
+type responses {
+    answer: JSON
+    id: ID
+    status: String
+    task(filter: tasks_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): tasks
+    user(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+}
+
+type tasks {
+    checkboxes: JSON
+    date_created: Date
+    date_created_func: datetime_functions
+    description: String
+    id: ID
+    input: String
+    name: String
+    status: String!
+    type: String
+}
+
+input articles_filter {
+    _and: [articles_filter]
+    _or: [articles_filter]
+    content: string_filter_operators
+    date_created: date_filter_operators
+    date_created_func: datetime_function_filter_operators
+    date_updated: date_filter_operators
+    date_updated_func: datetime_function_filter_operators
+    description: string_filter_operators
+    id: string_filter_operators
+    name: string_filter_operators
+    status: string_filter_operators
+    thumbnail: directus_files_filter
+    user_created: directus_users_filter
+    user_updated: directus_users_filter
+}
+
+input boolean_filter_operators {
+    _eq: Boolean
+    _neq: Boolean
+    _nnull: Boolean
+    _null: Boolean
+}
+
+input courses_elements_filter {
+    _and: [courses_elements_filter]
+    _or: [courses_elements_filter]
+    collection: string_filter_operators
+    courses_id: courses_filter
+    id: number_filter_operators
+    item: string_filter_operators
+    order: number_filter_operators
+}
+
+input courses_filter {
+    _and: [courses_filter]
+    _or: [courses_filter]
+    date_created: date_filter_operators
+    date_created_func: datetime_function_filter_operators
+    date_updated: date_filter_operators
+    date_updated_func: datetime_function_filter_operators
+    description: string_filter_operators
+    elements: courses_elements_filter
+    id: string_filter_operators
+    name: string_filter_operators
+    status: string_filter_operators
+    thumbnail: directus_files_filter
+    user_created: directus_users_filter
+    user_updated: directus_users_filter
+}
+
+input create_responses_input {
+    answer: JSON
+    status: String
+    task: String
+}
+
+input date_filter_operators {
+    _eq: String
+    _gt: String
+    _gte: String
+    _lt: String
+    _lte: String
+    _neq: String
+    _nnull: Boolean
+    _null: Boolean
+}
+
+input datetime_function_filter_operators {
+    day: number_filter_operators
+    hour: number_filter_operators
+    minute: number_filter_operators
+    month: number_filter_operators
+    second: number_filter_operators
+    week: number_filter_operators
+    weekday: number_filter_operators
+    year: number_filter_operators
+}
+
+input datetime_functionsInput {
+    day: Int
+    hour: Int
+    minute: Int
+    month: Int
+    second: Int
+    week: Int
+    weekday: Int
+    year: Int
+}
+
+input directus_files_filter {
+    _and: [directus_files_filter]
+    _or: [directus_files_filter]
+    charset: string_filter_operators
+    description: string_filter_operators
+    duration: number_filter_operators
+    embed: string_filter_operators
+    filename_disk: string_filter_operators
+    filename_download: string_filter_operators
+    filesize: number_filter_operators
+    folder: directus_folders_filter
+    height: number_filter_operators
+    id: string_filter_operators
+    location: string_filter_operators
+    metadata: string_filter_operators
+    modified_by: directus_users_filter
+    modified_on: date_filter_operators
+    modified_on_func: datetime_function_filter_operators
+    storage: string_filter_operators
+    tags: string_filter_operators
+    title: string_filter_operators
+    type: string_filter_operators
+    uploaded_by: directus_users_filter
+    uploaded_on: date_filter_operators
+    uploaded_on_func: datetime_function_filter_operators
+    width: number_filter_operators
+}
+
+input directus_folders_filter {
+    _and: [directus_folders_filter]
+    _or: [directus_folders_filter]
+    id: string_filter_operators
+    name: string_filter_operators
+    parent: directus_folders_filter
+}
+
+input directus_roles_filter {
+    _and: [directus_roles_filter]
+    _or: [directus_roles_filter]
+    admin_access: boolean_filter_operators
+    app_access: boolean_filter_operators
+    description: string_filter_operators
+    enforce_tfa: boolean_filter_operators
+    icon: string_filter_operators
+    id: string_filter_operators
+    ip_access: string_filter_operators
+    name: string_filter_operators
+    users: directus_users_filter
+}
+
+input directus_users_filter {
+    _and: [directus_users_filter]
+    _or: [directus_users_filter]
+    avatar: directus_files_filter
+    description: string_filter_operators
+    email: string_filter_operators
+    first_name: string_filter_operators
+    id: string_filter_operators
+    language: string_filter_operators
+    last_name: string_filter_operators
+    last_page: string_filter_operators
+    location: string_filter_operators
+    password: string_filter_operators
+    role: directus_roles_filter
+    status: string_filter_operators
+    tags: string_filter_operators
+    tfa_secret: string_filter_operators
+    theme: string_filter_operators
+    title: string_filter_operators
+}
+
+input game_company_filter {
+    _and: [game_company_filter]
+    _or: [game_company_filter]
+    bill: number_filter_operators
+    icon: directus_files_filter
+    id: string_filter_operators
+    name: string_filter_operators
+    staff: string_filter_operators
+    type: string_filter_operators
+}
+
+input game_tasks_filter {
+    _and: [game_tasks_filter]
+    _or: [game_tasks_filter]
+    answer: boolean_filter_operators
+    description: string_filter_operators
+    icon: directus_files_filter
+    id: string_filter_operators
+    title: string_filter_operators
+}
+
+input number_filter_operators {
+    _eq: Float
+    _gt: Float
+    _gte: Float
+    _in: [Float]
+    _lt: Float
+    _lte: Float
+    _neq: Float
+    _nin: [Float]
+    _nnull: Boolean
+    _null: Boolean
+}
+
+input partition_elements_filter {
+    _and: [partition_elements_filter]
+    _or: [partition_elements_filter]
+    collection: string_filter_operators
+    id: number_filter_operators
+    item: string_filter_operators
+    partition_id: partition_filter
+}
+
+input partition_filter {
+    _and: [partition_filter]
+    _or: [partition_filter]
+    elements: partition_elements_filter
+    id: string_filter_operators
+    name: string_filter_operators
+}
+
+input project_staff_filter {
+    _and: [project_staff_filter]
+    _or: [project_staff_filter]
+    id: string_filter_operators
+    project: projects_filter
+    role: directus_roles_filter
+    user: directus_users_filter
+}
+
+input projects_courses_filter {
+    _and: [projects_courses_filter]
+    _or: [projects_courses_filter]
+    courses_id: courses_filter
+    id: number_filter_operators
+    projects_id: projects_filter
+}
+
+input projects_filter {
+    _and: [projects_filter]
+    _or: [projects_filter]
+    courses: projects_courses_filter
+    date_created: date_filter_operators
+    date_created_func: datetime_function_filter_operators
+    id: string_filter_operators
+    name: string_filter_operators
+    project_staff: project_staff_filter
+    projects_meta: projects_meta_filter
+    result: string_filter_operators
+    user_created: directus_users_filter
+}
+
+input projects_meta_filter {
+    _and: [projects_meta_filter]
+    _or: [projects_meta_filter]
+    date_created: date_filter_operators
+    date_created_func: datetime_function_filter_operators
+    events: string_filter_operators
+    id: string_filter_operators
+    planning: string_filter_operators
+    project: projects_filter
+    purpose: string_filter_operators
+    user_created: directus_users_filter
+}
+
+input responses_filter {
+    _and: [responses_filter]
+    _or: [responses_filter]
+    answer: string_filter_operators
+    id: string_filter_operators
+    status: string_filter_operators
+    task: tasks_filter
+    user: directus_users_filter
+}
+
+input string_filter_operators {
+    _contains: String
+    _empty: Boolean
+    _ends_with: String
+    _eq: String
+    _in: [String]
+    _ncontains: String
+    _nempty: Boolean
+    _nends_with: String
+    _neq: String
+    _nin: [String]
+    _nnull: Boolean
+    _nstarts_with: String
+    _null: Boolean
+    _starts_with: String
+}
+
+input tasks_filter {
+    _and: [tasks_filter]
+    _or: [tasks_filter]
+    checkboxes: string_filter_operators
+    date_created: date_filter_operators
+    date_created_func: datetime_function_filter_operators
+    description: string_filter_operators
+    id: string_filter_operators
+    input: string_filter_operators
+    name: string_filter_operators
+    status: string_filter_operators
+    type: string_filter_operators
+}
+
+input update_directus_files_input {
+    charset: String
+    description: String
+    duration: Int
+    embed: String
+    filename_disk: String
+    filename_download: String
+    filesize: Int
+    folder: update_directus_folders_input
+    height: Int
+    id: ID
+    location: String
+    metadata: JSON
+    modified_by: update_directus_users_input
+    modified_on: Date
+    modified_on_func: datetime_functionsInput
+    storage: String
+    tags: JSON
+    title: String
+    type: String
+    uploaded_by: update_directus_users_input
+    uploaded_on: Date
+    uploaded_on_func: datetime_functionsInput
+    width: Int
+}
+
+input update_directus_folders_input {
+    id: ID
+    name: String
+    parent: update_directus_folders_input
+}
+
+input update_directus_users_input {
+    avatar: update_directus_files_input
+    description: String
+    email: String
+    first_name: String
+    language: String
+    last_name: String
+    location: String
+    password: String
+    theme: String
+    title: String
+}
+
+input update_projects_input {
+    courses: String
+    date_created: Date
+    date_created_func: datetime_functionsInput
+    id: ID
+    name: String
+    project_staff: String
+    projects_meta: String
+    result: String
+    user_created: update_directus_users_input
+}
+
+input update_responses_input {
+    answer: JSON
+    id: ID
+    status: String
+    task: String
+    user: update_directus_users_input
+}
+
+
+"The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)."
+scalar JSON
+
+"ISO8601 Date values"
+scalar Date

@@ -1,0 +1,9 @@
+mutation AUTH{
+    auth_login(
+        email: "system@volki.digital"
+        password: "1256"
+    ) {
+        access_token
+        refresh_token
+    }
+}

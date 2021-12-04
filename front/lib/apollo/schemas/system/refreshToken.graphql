@@ -1,0 +1,10 @@
+mutation REFRESH_TOKEN(
+    $t: String
+) {
+    auth_refresh(
+        refresh_token: $t
+    ){
+        refresh_token
+        access_token
+    }
+}

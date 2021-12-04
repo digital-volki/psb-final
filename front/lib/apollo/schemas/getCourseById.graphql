@@ -1,0 +1,38 @@
+query GET_COURSE_BY_ID(
+    $id: ID!
+){
+    courses_by_id(
+        id: $id
+    ){
+            id
+            name
+            status
+            description
+            thumbnail{
+                id
+                description
+                filename_disk
+                filename_download
+                filesize
+                folder{
+                    id
+                    name
+                    parent{
+                        id
+                        name
+                    }
+                }
+                height
+                id
+                location
+                metadata
+                storage
+                tags
+                title
+                type
+                width
+            }
+
+        }
+    }
+

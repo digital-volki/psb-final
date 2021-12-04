@@ -1,0 +1,9 @@
+mutation AUTH ($email: String!, $pass: String!){
+    auth_login(
+        email: $email
+        password: $pass
+    ) {
+        refresh_token
+        access_token
+    }
+}

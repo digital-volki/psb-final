@@ -1,0 +1,62 @@
+fragment art on articles{
+    content
+    id
+    name
+    thumbnail {
+        id
+    }
+}
+
+fragment que on tasks{
+    name
+    description
+    id
+    checkboxes
+    type
+}
+
+
+query GET_TASK(
+    $id: ID!
+) {
+    structure: courses_by_id(
+        id: $id
+    ) {
+        date_created
+        date_updated
+        description
+        elements {
+            id
+            collection
+            item {
+                ... on articles {
+                    ...art
+                }
+                ... on partition {
+                    id
+                    name
+                    elements{
+                        collection
+                        item {
+                            ... on tasks{
+                                ...que
+                            }
+                            ... on articles{
+                                ...art
+                            }
+                        }
+                    }
+                }
+                ... on tasks{
+                    ...que
+                }
+            }
+        }
+        id
+        name
+        status
+        thumbnail{
+            id
+        }
+    }
+}
